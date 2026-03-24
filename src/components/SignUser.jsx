@@ -13,7 +13,7 @@ const SignUser = () => {
   const email = useRef(null);
   const password = useRef(null);
   const name = useRef(null);
-   const navigate = useNavigate()
+  //  const navigate = useNavigate()
 
  
   const handlePage=()=>{
@@ -36,7 +36,7 @@ const SignUser = () => {
             .then((userCredential) => {
               // Signed up 
               const user = userCredential.user;
-               navigate('/browser')
+              //  navigate('/browser')
               // ...
 
 
@@ -56,7 +56,7 @@ const SignUser = () => {
               const user = userCredential.user;
               
               console.log(user)
-               navigate('/browser')
+              //  navigate('/browser')
               // ...
             })
             .catch((error) => {
