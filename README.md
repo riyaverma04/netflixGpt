@@ -12,6 +12,10 @@
 - implement sign in user api
 - created redux store with userSlice
 - updating store with user details
+- bugfix: header component available on each page so authentication state management in hader component and user cann't go /browser page without login or vice-versa
+- registered on TMDB for movie api and created an app to access movie api
+- get the new movie playing fom the list
+- 
 
 
 
