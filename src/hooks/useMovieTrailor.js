@@ -8,7 +8,7 @@ const useMovieTrailor =  ({id}) => {
     const handleMovieTrailor = async()=> {
         const data = await fetch('https://api.themoviedb.org/3/movie/999136/videos', API_OPTIONS)
         const json = await data.json();
-        console.log(json)
+        // console.log(json)
         const trailorVideo = json.results?.filter(item => {
            return item.type === "Trailer"
 

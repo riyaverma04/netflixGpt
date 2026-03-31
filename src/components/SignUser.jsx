@@ -26,7 +26,7 @@ const SignUser = () => {
   const handleButton = ()=>{
     //validate form 
     const validationResult = checkValidData(email.current.value, password.current.value);
-    console.log(validationResult)
+    // console.log(validationResult)
     if(validationResult !== null){
       setValidErrorMessage(validationResult);
       return;
@@ -55,7 +55,7 @@ const SignUser = () => {
               // Signed in 
               const user = userCredential.user;
               
-              console.log(user)
+              //console.log(user)
               //  navigate('/browser')
               // ...
             })

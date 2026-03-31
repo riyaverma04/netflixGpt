@@ -4,7 +4,7 @@ import { POSTER_URL } from '../utils/constants';
 
 const MovieCard = ({title, movies,isFirst}) => {
     
-    console.log("this is moviesArray from movie Card ", movies)
+   // console.log("this is moviesArray from movie Card ", movies)
    
     
   return (

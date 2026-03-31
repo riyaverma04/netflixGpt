@@ -4,10 +4,10 @@ import { useSelector } from 'react-redux'
 const TrailorInfo = () => {
     //to get the trailor info we need to subscribe to the store
     const trailorsArray = useSelector(store => store.movies?.nowPlayingMovies);
-    console.log(trailorsArray)
+    // console.log(trailorsArray)
     if(trailorsArray === null) return;
     const trailor = trailorsArray[3];
-    console.log(trailor)
+    // console.log(trailor)
     const {id, title,overview} = trailor;
     
   return (

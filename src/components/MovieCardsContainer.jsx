@@ -15,7 +15,7 @@ const MovieCardsContainer = () => {
      if(popularMovieArray === null)  return;
      if(topRatedMovieArray === null) return;  
      
-    console.log("this is console from moviecards ", nowPlayingMoviesArray)
+    //console.log("this is console from moviecards ", nowPlayingMoviesArray)
   return (
     <div className='bg-black '>
         <MovieCard title={'Now Playing'}  movies={nowPlayingMoviesArray} isFirst/>

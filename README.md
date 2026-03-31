@@ -15,7 +15,16 @@
 - bugfix: header component available on each page so authentication state management in hader component and user cann't go /browser page without login or vice-versa
 - registered on TMDB for movie api and created an app to access movie api
 - get the new movie playing fom the list
-- 
+- create movieSlice 
+- update store with movies data
+- create file for movieTrailor and movieCard container
+-fetch Data for trailer video
+- update streo with trailer video data
+- embedded the youtube video and make it autoplay and mute
+- tailwing classes to make movieTrailercontainer look much better
+- build movieCardContainer and fetched data for popular and top rated videos and stored in movieSlice 
+- component for gptSearch and 
+- gptSearchSlice 
 
 
 

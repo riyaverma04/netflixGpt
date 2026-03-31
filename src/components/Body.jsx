@@ -4,8 +4,12 @@ import Header from './Header'
 import useNowPlayingMovies from '../hooks/useNowPlayingMovies'
 import  TrailorContainer from './TrailorContainer'
 import MovieCardsContainer from './MovieCardsContainer'
+import { useSelector } from 'react-redux'
+import GptSearchPage from './GptSearchPage'
 
 const Body = () => {
+  const gptSearchPageview = useSelector(store=> store.gptSearch?.gptSearchContainer);
+ 
   useNowPlayingMovies();
  
   
@@ -23,8 +27,9 @@ const Body = () => {
         
         
         */}
-        <TrailorContainer/>
-        <MovieCardsContainer/>
+        {gptSearchPageview ?  <GptSearchPage/> : <> <TrailorContainer/>
+        <MovieCardsContainer/></> }
+       
        
 
       

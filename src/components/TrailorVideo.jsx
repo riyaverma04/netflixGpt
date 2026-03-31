@@ -7,10 +7,10 @@ const TrailorVideo = () => {
     useMovieTrailor();
     if(trailorData === null) return ;
     const {key,id} = trailorData[0];
-    console.log("hey",trailorData)
+  //   console.log("hey",trailorData)
   
-  console.log("id form trailr video ", id)
-  console.log("key", key)
+  // console.log("id form trailr video ", id)
+  // console.log("key", key)
    
   
 
