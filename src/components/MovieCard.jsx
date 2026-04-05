@@ -11,7 +11,7 @@ const MovieCard = ({title, movies,isFirst}) => {
     <div >
         <div className={`${isFirst ? "-mt-44" : "mt-6"}  relative z-20 px-5}`}>
             <h1 className='text-3xl font-bold pb-4 text-white  '>{title}</h1>
-        <div className='flex gap-5 overflow-x-auto no-scrollbar '>{
+        <div className='flex gap-5 overflow-x-auto no-scrollbar h-auto m-8 '>{
           movies?.map((movie)=>{
                 return(
                     <div key={movie.id} className="min-w-[150px]" >

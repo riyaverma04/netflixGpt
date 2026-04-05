@@ -4,7 +4,8 @@ import { useDispatch, useSelector } from 'react-redux'
 
 // import genAI from '../utils/openai';
 import groq from '../utils/openai';
-import { setGptSuggestedMovies } from '../utils/gptSearchSlice';
+import { setGptSuggestedMovies ,setGptSearchInput } from '../utils/gptSearchSlice';
+import { API_OPTIONS } from '../utils/constants';
 
 const GptSearchBar = () => {
   const dispatch = useDispatch();
@@ -35,14 +36,28 @@ const GptSearchBar = () => {
 //   console.log(refSearchInput.current?.value);
 // };
 
+ const handlegptSuggestedMovies = async(movie)=>{
+        
+        const data  = await fetch('https://api.themoviedb.org/3/search/movie?query='+movie+'&include_adult=false&language=en-US&page=1', API_OPTIONS);
+        const json = await data.json();
 
+        console.log(json.results[0])
+        
+        
+        return json.results[0];
+        
+        
+
+    }
 
 
 
 
 const handleGptSubmit = async (e) => {
     e.preventDefault();
+  
 
+    dispatch(setGptSearchInput(refSearchInput.current.value));
     try {
       const mood = refSearchInput.current.value;
 
@@ -69,7 +84,20 @@ Do not explain anything.
 
       console.log("AI Query:", text);
       const gptSuggestedMovies = text.split(",").map((movie) => movie.trim());
-      dispatch(setGptSuggestedMovies(gptSuggestedMovies));
+        
+      const promiseArray =  gptSuggestedMovies.map(movie =>(
+
+        handlegptSuggestedMovies(movie)
+      )
+        
+      
+      
+         
+        );
+        const tmdbMovies = await Promise.all(promiseArray )
+        console.log("TMDB Movies:", tmdbMovies);
+        dispatch(setGptSuggestedMovies(tmdbMovies));
+      
       console.log("Suggested Movies:", gptSuggestedMovies);
 
     } catch (error) {
