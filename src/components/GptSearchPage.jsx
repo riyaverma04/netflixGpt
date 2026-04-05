@@ -1,6 +1,7 @@
 import React from 'react'
 
 import GptSearchBar from './GptSearchBar'
+import GptMoviesContainer from './GptMoviesContainer'
 
 const GptSearchPage = () => {
 
@@ -12,6 +13,7 @@ const GptSearchPage = () => {
                        <div className='z-100  absolute m-auto w-4/12 h-auto p-6  border-black rounded-lg  py-8  bg-black/70 text-white'>
 
               <GptSearchBar/>
+              <GptMoviesContainer/>
               </div>
               
               </div>

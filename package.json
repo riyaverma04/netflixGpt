@@ -10,8 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@google/generative-ai": "^0.24.1",
     "@reduxjs/toolkit": "^2.11.2",
     "firebase": "^12.10.0",
+    "groq-sdk": "^1.1.2",
+    "openai": "^6.33.0",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "react-redux": "^9.2.0",
