@@ -37,6 +37,7 @@ const GptSearchBar = () => {
 // };
 
  const handlegptSuggestedMovies = async(movie)=>{
+  
         
         const data  = await fetch('https://api.themoviedb.org/3/search/movie?query='+movie+'&include_adult=false&language=en-US&page=1', API_OPTIONS);
         const json = await data.json();
@@ -55,6 +56,7 @@ const GptSearchBar = () => {
 
 const handleGptSubmit = async (e) => {
     e.preventDefault();
+    if(!refSearchInput.current.value) return;
   
 
     dispatch(setGptSearchInput(refSearchInput.current.value));
@@ -99,15 +101,16 @@ Do not explain anything.
         dispatch(setGptSuggestedMovies(tmdbMovies));
       
       console.log("Suggested Movies:", gptSuggestedMovies);
+      refSearchInput.current.value = "";
 
     } catch (error) {
       console.error("Groq Error:", error);
     }
   };
   return (
-    <div className='flex gap-2  '>
-                <input type="text"  ref={refSearchInput} placeholder={language[languageKey].gptPlaceHolder}  className='w-11/12 px-2 rounded-lg text-black'/>
-                <button onClick={handleGptSubmit} className='px-5 py-2 font-bold text-lg bg-red-600 text-white rounded-lg'>{language[languageKey].search}</button>
+    <div className='flex gap-2 justify-center items-center flex-col md:flex-row '>
+                <input type="text"  ref={refSearchInput} placeholder={language[languageKey].gptPlaceHolder}  className=' w-[90%] md:w-10/12 px-3 py-3  text-sm md:text-lg rounded-lg text-black'/>
+                <button onClick={handleGptSubmit} className='w-auto px-4 py-3 text-sm md:px-5 md:py-2 font-bold md:text-lg bg-red-600 text-white rounded-lg'>{language[languageKey].search}</button>
               </div>
   )
 }

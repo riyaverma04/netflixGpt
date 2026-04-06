@@ -6,7 +6,7 @@ import TrailorVideo from './TrailorVideo'
 
 const TrailorContainer = () => {
   return (
-    <div>
+    <div className='mt-0'>
         <TrailorInfo/>
         <TrailorVideo/>
       

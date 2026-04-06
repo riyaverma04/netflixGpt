@@ -62,13 +62,13 @@ const Header = () => {
 
 },[])
   return (
-    <div className='absolute  pt-2 bg-gradient-to-b from-black w-full  h-auto z-40' >
-        <div className='flex justify-between  py-2 px-8'>
-          <img src={LOGO} alt="logo" srcset=""  className='w-[150px]' />
+    <div className='absolute  pt-2 bg-gradient-to-b from-black w-[100%]  h-auto z-40' >
+        <div className=' flex flex-col md:flex-row justify-between items-center px-2 md:py-2 md:px-8'>
+          <img src={LOGO} alt="logo" srcset=""  className='w-[100px] md:w-[150px]' />
 
 
         {
-          user && <div className='flex justify-center items-center gap-3'>
+          user && <div className='flex gap-1 md:justify-center items-center md:gap-3'>
 
 
                   {
@@ -85,9 +85,9 @@ const Header = () => {
                     )
                   }
             
-                      <button className=' text-sm px-5 py-2 cursor-pointer flex justify-center items-center text-white bg-red-600 hover:bg-red-700 rounded-lg' onClick={handleGptClick}>GPT Search</button>
+                      <button className=' text-sm px-2 py-1 md:px-5 md:py-2 cursor-pointer flex justify-center items-center text-white bg-red-600 hover:bg-red-700 rounded-lg' onClick={handleGptClick}>GPT Search</button>
 
-          <div className=' flex justify-center items-center text-lg font-bold text-red-600 cursor-pointer' onClick={handleSignOut}>
+          <div className=' flex justify-center items-center text-sm md:text-lg font-bold text-red-600 cursor-pointer' onClick={handleSignOut}>
           logOUt
         </div>
           </div>
