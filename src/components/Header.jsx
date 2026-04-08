@@ -72,7 +72,7 @@ const Header = () => {
 
 
                   {
-                    gptSearchPageview && (
+                    
                       <select name="" id="" className='px-2 py-1 rounded-md  flex justify-center items-center  border-none ' onClick={handleLanguage}>
                         {
                           SUPPORTED_LANGUAGE.map((lang)=>(
@@ -82,7 +82,7 @@ const Header = () => {
                         
                         
                       </select>
-                    )
+                    
                   }
             
                       <button className=' text-sm px-2 py-1 md:px-5 md:py-2 cursor-pointer flex justify-center items-center text-white bg-red-600 hover:bg-red-700 rounded-lg' onClick={handleGptClick}>GPT Search</button>

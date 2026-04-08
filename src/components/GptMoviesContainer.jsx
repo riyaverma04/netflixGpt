@@ -1,6 +1,8 @@
 import { useSelector } from "react-redux";
-import MovieCard from "./movieCardsContainer";
+// import MovieCard from "./movieCardsContainer";
 import { POSTER_URL } from '../utils/constants';
+import language from "../utils/language";
+
 
 
 
@@ -10,6 +12,7 @@ import { POSTER_URL } from '../utils/constants';
 const GptMoviesContainer = ()=>{
     const gptSuggestedMovies = useSelector(store => store.gptSearch?.gptSuggestedMovies);
     const gptSearchInput = useSelector(store => store.gptSearch?.gptSearchInput);
+    const languageKey= useSelector(store=> store.config?.lang);
    
 
    
@@ -18,7 +21,7 @@ const GptMoviesContainer = ()=>{
 
              <div >
                     <div className={" mt-6 w-full relative z-20 px-5"}>
-                       { gptSuggestedMovies && <h1>Here are search for : {gptSearchInput}</h1> }
+                       { gptSuggestedMovies && <h1>{language[languageKey]["Here are search for"]}: {gptSearchInput}</h1> }
                         
                     <div className=' flex  flex-wrap md:flex-nowrap md:overflow-x-auto  overflow-y-auto no-scrollbar h-auto md:overflow-y-hidden '>{
                       gptSuggestedMovies?.map((movie)=>{
