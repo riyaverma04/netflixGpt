@@ -14,7 +14,7 @@ const TrailorInfo = () => {
     const trailor = trailorsArray[3];
     // console.log(trailor)
     const {id, title,overview} = trailor;
-    console.log("language from trailor info ", selectedLanguage)
+    // console.log("language from trailor info ", selectedLanguage)
 
     useEffect(()=>{
       const translate = async()=>{
@@ -22,10 +22,10 @@ const TrailorInfo = () => {
         
           
 
-    console.log("TITLE:", title);
-    console.log("LANG:", selectedLanguage);
+    // console.log("TITLE:", title);
+    // console.log("LANG:", selectedLanguage);
         const translateTitle = await translateText(title, selectedLanguage);
-        console.log("RESULT:", translateTitle); // 👈 VERY IMPORTANT
+        // console.log("RESULT:", translateTitle); // 👈 VERY IMPORTANT
         setTranslatedTitle(translateTitle);
       }
       translate();
@@ -36,10 +36,10 @@ const TrailorInfo = () => {
         if(!overview) return;
           
 
-    console.log("OVERVIEW:", overview);
-    console.log("LANG:", selectedLanguage);
+    // console.log("OVERVIEW:", overview);
+    // console.log("LANG:", selectedLanguage);
         const translateOverview = await translateText(overview, selectedLanguage);
-        console.log("RESULT:", translateOverview); // 👈 VERY IMPORTANT
+        // console.log("RESULT:", translateOverview); // 👈 VERY IMPORTANT
         setTranslatedOverview(translateOverview);
       }
       translate();
