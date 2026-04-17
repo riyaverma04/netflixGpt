@@ -3,7 +3,7 @@ import Header from './Header'
 
 import useNowPlayingMovies from '../hooks/useNowPlayingMovies'
 import  TrailorContainer from './TrailorContainer'
-import MovieCardsContainer from './MovieCardsContainer'
+import MovieCardsContainer from './movieCardsContainer'
 import { useSelector } from 'react-redux'
 import GptSearchPage from './GptSearchPage'
 
