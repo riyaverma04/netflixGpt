@@ -4,6 +4,9 @@ import MovieCard from './MovieCard'
 import usePopularMovies from '../hooks/usePopularMovies';
 import translateText from '../utils/translateText';
 import useTopRatedMovies from '../hooks/useTopRatedMovies';
+import {Atom} from 'react-loading-indicators'
+import { useNavigate } from 'react-router-dom';
+
 
 
 
@@ -15,10 +18,10 @@ const MovieCardsContainer = () => {
     const [titleNowPlaying, setTitleNowPlaying] =useState("");
     const [titlePopular, setTitlePopular] =useState("");
     const [titleTopRated, setTitleTopRated] =useState("");
-    usePopularMovies();
-    useTopRatedMovies(); // Call the hook for top-rated movies
-     if(popularMovieArray === null)  return;
-     if(topRatedMovieArray === null) return; 
+    const loading = usePopularMovies();
+    const navigate = useNavigate();
+         const topRatedMovieLoading = useTopRatedMovies(); // Call the hook for top-rated movies
+   
      
      
      useEffect(()=>{
@@ -32,13 +35,29 @@ const MovieCardsContainer = () => {
       }
       translate()
      },[selectedLanguage])
+     const handleNowPlaying=(choice)=>{
+      navigate(`/${choice}`)
+
+     }
+     if (loading || topRatedMovieLoading) {
+    return (
+      <div className='w-full h-[100vh] flex justify-center items-center bg-black'>
+        <Atom color="#ec1010" size="medium" />
+      </div>
+    );
+  }
+  
+
+  if (!popularMovieArray || !topRatedMovieArray) {
+    return null;
+  }
      
     //console.log("this is console from moviecards ", nowPlayingMoviesArray)
   return (
     <div className='bg-black '>
-        <MovieCard title={titleNowPlaying || "Now Playing"}  movies={nowPlayingMoviesArray} isFirst/>
-        <MovieCard title={titlePopular || "Popular"}  movies={popularMovieArray}/>
-        <MovieCard title={titleTopRated || "Top Rated"}  movies={topRatedMovieArray}/>
+        <MovieCard title={titleNowPlaying || "Now Playing"}  movies={nowPlayingMoviesArray} isFirst handleClick={()=>{handleNowPlaying('nowPlaying')}}/>
+        <MovieCard title={titlePopular || "Popular"}  movies={popularMovieArray} handleClick={()=>{handleNowPlaying('popular')}}/>
+        <MovieCard title={titleTopRated || "Top Rated"}  movies={topRatedMovieArray} handleClick={()=>{handleNowPlaying('topRated')}}/>
         
       
     </div>

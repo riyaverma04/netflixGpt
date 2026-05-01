@@ -1,12 +1,9 @@
 import React from 'react'
-import useMovieTrailor from '../hooks/useMovieTrailor'
-import { useSelector } from 'react-redux';
 
-const TrailorVideo = () => {
-    const trailorData = useSelector(store => store.movies?.movieTrailor);
-    useMovieTrailor();
-    if(trailorData === null) return ;
-    const {key,id} = trailorData[0];
+
+const TrailorVideo = ({videoKey}) => {
+  console.log("videoKey", videoKey)
+    
   //   console.log("hey",trailorData)
   
   // console.log("id form trailr video ", id)
@@ -16,7 +13,7 @@ const TrailorVideo = () => {
 
   return (
     <div className="relative z-0">
-        <iframe  src={`https://www.youtube.com/embed/${key}?autoplay=1&mute=1&loop=1&playsinline=1&controls=0`} title="YouTube video player" allow="accelerometer; autoplay;  mute; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"  referrerPolicy="strict-origin-when-cross-origin" className=" h-[80vh] md:h-screen w-full "></iframe>
+        <iframe  src={`https://www.youtube.com/embed/${videoKey}?autoplay=1&mute=1&loop=1&playsinline=1&controls=0`} title="YouTube video player" allow="accelerometer; autoplay;  mute; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"  referrerPolicy="strict-origin-when-cross-origin" className=" h-[80vh] md:h-screen w-full "></iframe>
       
     </div>
     // allow="autoplay; mute" 

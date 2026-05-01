@@ -22,6 +22,7 @@ const Header = () => {
 
   }
   const handleGptClick=()=>{
+   
     dispatch(ToggleGptSearch());
     
   }
@@ -47,7 +48,7 @@ const Header = () => {
       email:email,
       userName: displayName
     }))
-    navigate("/browser")
+    navigate("/recommended")
    
     // ...
   } else {

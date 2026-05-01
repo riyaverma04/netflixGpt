@@ -2,18 +2,19 @@ import React, { useEffect , useState } from 'react'
 import { useSelector } from 'react-redux'
 import translateText from '../utils/translateText';
 
-const TrailorInfo = () => {
+const TrailorInfo = ({overview, title}) => {
   const selectedLanguage = useSelector(store => store.config?.lang);
     //to get the trailor info we need to subscribe to the store
     const trailorsArray = useSelector(store => store.movies?.nowPlayingMovies);
     const [translatedTitle, setTranslatedTitle] = useState("");
     const [translatedOverview, setTranslatedOverview] = useState("");
+    
     // console.log(trailorsArray)
     // if(trailorsArray === null) return;
     if (!trailorsArray) return null;
     const trailor = trailorsArray[3];
     // console.log(trailor)
-    const {id, title,overview} = trailor;
+    // const {id, title,overview} = trailor;
     // console.log("language from trailor info ", selectedLanguage)
 
     useEffect(()=>{

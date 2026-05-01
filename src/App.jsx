@@ -5,6 +5,9 @@ import SignUser from './components/SignUser'
 import Body from './components/Body'
 
 import { useDispatch } from 'react-redux'
+import Popular from './components/Popular'
+import NowPlaying from './components/NowPlaying'
+import TopRated from './components/TopRated'
 
 
 function App() {
@@ -17,8 +20,18 @@ function App() {
 
     },
    {
-    path: "/browser",
+    path: "/recommended",
     element: <Body/>
+   },{
+    path:"/popular",
+    element:<Popular/>
+   }
+   ,{
+    path:"/nowPlaying",
+    element:<NowPlaying/>
+   },{
+    path:"/topRated",
+    element:<TopRated/>
    }
 
 
