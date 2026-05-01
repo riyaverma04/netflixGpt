@@ -17,6 +17,10 @@ const SignUser = () => {
 
  
   const handlePage=()=>{
+    setValidErrorMessage(null);
+    email.current.value = "";
+    password.current.value = "";
+    
     setSignIn(!isSignIn)
    
 
