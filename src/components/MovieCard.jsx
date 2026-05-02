@@ -1,11 +1,25 @@
 import React from 'react';
 
 import Card from './Card';
+import useWatchingMovie from '../hooks/useWatchingMovie';
+import { useSelector } from 'react-redux';
+
 
 
 const MovieCard = ({title, movies,isFirst,handleClick}) => {
+  //dispatching watchingMovie in redux
+    const dispatchwatchingMovie = useWatchingMovie();
+    
     
    // console.log("this is moviesArray from movie Card ", movies)
+   const handleMovie = (movie)=>{
+    dispatchwatchingMovie(movie);
+
+    
+
+  
+
+   }
    
     
   return (
@@ -16,7 +30,7 @@ const MovieCard = ({title, movies,isFirst,handleClick}) => {
           movies?.map((movie)=>{
                 return(
                    <div key={movie.id}>
-                     <Card movie={movie}/>
+                     <Card movie={movie} handleGoToMovieClick={()=>handleMovie(movie)}/>
                    </div>
 //                     <div key={movie.id} className="min-w-[150px]   " >
 // {                      movie.poster_path &&  <img src={`${POSTER_URL+movie.poster_path}`} alt="" srcset=""  className='w-[150px] h-[225px] object-cover rounded-lg cursor-pointer  transition-transform duration-300 hover:scale-110 mt-3' />

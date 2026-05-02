@@ -5,6 +5,7 @@ import {ArrowLeft } from 'lucide-react'
 import Card from "./Card";
 
 import InfiniteScroll from "react-infinite-scroll-component";
+import useWatchingMovie from "../hooks/useWatchingMovie";
 function topRelated() {
     const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
   document.title = "topRelated";
@@ -13,6 +14,7 @@ function topRelated() {
   const [category, setcategory] = useState("movie");
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
+  const dispatchwatchingMovie = useWatchingMovie();
 
   const gettopRelated = async () => {
     const res = await fetch(
@@ -36,6 +38,14 @@ function topRelated() {
       gettopRelated();
     }
   };
+   const handleMovie = (movie)=>{
+    dispatchwatchingMovie(movie);
+
+    
+
+  
+
+   }
 
   useEffect(() => {
     fetchMorePage();
@@ -65,7 +75,7 @@ function topRelated() {
               return (
                 <div key={index}>
 
-                  <Card movie={item} />
+                  <Card movie={item} handleGoToMovieClick={()=>handleMovie(item)} />
                   
                 </div>
               );

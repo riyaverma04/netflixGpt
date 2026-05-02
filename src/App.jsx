@@ -8,6 +8,7 @@ import { useDispatch } from 'react-redux'
 import Popular from './components/Popular'
 import NowPlaying from './components/NowPlaying'
 import TopRated from './components/TopRated'
+import MovieWatch from './components/MovieWatch'
 
 
 function App() {
@@ -32,6 +33,9 @@ function App() {
    },{
     path:"/topRated",
     element:<TopRated/>
+   },{
+    path:'/movie-watch',
+    element:<MovieWatch/>
    }
 
 

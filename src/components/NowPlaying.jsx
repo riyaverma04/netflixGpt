@@ -6,6 +6,7 @@ import {ArrowLeft } from 'lucide-react'
 import Card from "./Card";
 
 import InfiniteScroll from "react-infinite-scroll-component";
+import useWatchingMovie from "../hooks/useWatchingMovie";
 function nowPlaying() {
     const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
   document.title = "nowPlaying";
@@ -14,6 +15,7 @@ function nowPlaying() {
   const [category, setcategory] = useState("movie");
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
+  const dispatchwatchingMovie = useWatchingMovie();
 
   const getnowPlaying = async () => {
     const res = await fetch(
@@ -37,6 +39,15 @@ function nowPlaying() {
       getnowPlaying();
     }
   };
+
+   const handleMovie = (movie)=>{
+    dispatchwatchingMovie(movie);
+
+    
+
+  
+
+   }
 
   useEffect(() => {
     fetchMorePage();
@@ -66,7 +77,7 @@ function nowPlaying() {
               return (
                 <div key={index}>
 
-                  <Card movie={item} />
+                  <Card movie={item} handleGoToMovieClick={()=>handleMovie(item)} />
                   
                 </div>
               );
