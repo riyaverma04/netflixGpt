@@ -14,16 +14,20 @@ const Header = () => {
   const user = useSelector(store => store.user);
   
    const gptSearchPageview = useSelector(store=> store.gptSearch?.gptSearchContainer);
+   const selectedLanguage = useSelector(store=> store.config?.lang);
+   console.log(selectedLanguage)
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const handleLanguage=(e)=>{
     // console.log(e.target.value)
     dispatch(changeLanguage(e.target.value))
+    localStorage.setItem("lang", e.target.value);
 
   }
   const handleGptClick=()=>{
    
     dispatch(ToggleGptSearch());
+    
     
   }
   const handleSignOut =()=>{
@@ -74,7 +78,7 @@ const Header = () => {
 
                   {
                     
-                      <select name="" id="" className='px-2 py-1 rounded-md  flex justify-center items-center  border-none ' onChange={handleLanguage}>
+                      <select name="" id="" className='px-2 py-1 rounded-md  flex justify-center items-center  border-none ' onChange={handleLanguage} value={selectedLanguage}>
                         {
                           SUPPORTED_LANGUAGE.map((lang)=>(
                             <option value={lang.identifier} key={lang.identifier}>{lang.name}</option>

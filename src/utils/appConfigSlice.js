@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-
+const savedLang = localStorage.getItem("lang");
 const configSlice = createSlice({
     name: "config",
     initialState: {
-        lang: "en",
+        lang: savedLang ||"en",
     },
     reducers:{
         changeLanguage: (state, action)=>{
