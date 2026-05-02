@@ -74,7 +74,7 @@ const Header = () => {
 
                   {
                     
-                      <select name="" id="" className='px-2 py-1 rounded-md  flex justify-center items-center  border-none ' onClick={handleLanguage}>
+                      <select name="" id="" className='px-2 py-1 rounded-md  flex justify-center items-center  border-none ' onChange={handleLanguage}>
                         {
                           SUPPORTED_LANGUAGE.map((lang)=>(
                             <option value={lang.identifier} key={lang.identifier}>{lang.name}</option>
